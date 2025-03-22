@@ -78,6 +78,12 @@
     <Compile Include="RegPage.Designer.cs">
       <DependentUpon>RegPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="SignOutPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignOutPage.Designer.cs">
+      <DependentUpon>SignOutPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="SupportPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </Compile>
     <EmbeddedResource Include="RegPage.resx">
       <DependentUpon>RegPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignOutPage.resx">
+      <DependentUpon>SignOutPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SupportPage.resx">
       <DependentUpon>SupportPage.cs</DependentUpon>
