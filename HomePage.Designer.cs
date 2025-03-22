@@ -1,6 +1,6 @@
 ﻿namespace BudgetTool
 {
-    partial class Form1
+    partial class HomePage
     {
         /// <summary>
         /// Required designer variable.
@@ -115,6 +115,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "Budget Spreadsheet";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button2
             // 
@@ -132,19 +133,19 @@
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.button3.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(433, 331);
+            this.button3.Location = new System.Drawing.Point(433, 337);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(179, 53);
             this.button3.TabIndex = 8;
             this.button3.Text = "Sign Out";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // Form1
+            // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(610, 410);
+            this.ClientSize = new System.Drawing.Size(610, 389);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -152,8 +153,8 @@
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "HomePage";
+            this.Text = "pl";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

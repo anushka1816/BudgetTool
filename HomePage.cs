@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BudgetTool
 {
-    public partial class Form1 : Form
+    public partial class HomePage : Form
     {
-        public Form1()
+        public HomePage()
         {
             InitializeComponent();
         }
@@ -38,6 +38,11 @@ namespace BudgetTool
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
 
         }
