@@ -59,6 +59,7 @@
             this.label1.Size = new System.Drawing.Size(215, 48);
             this.label1.TabIndex = 1;
             this.label1.Text = "Contact Us";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -106,6 +107,7 @@
             this.button4.TabIndex = 17;
             this.button4.Text = "Back to Home";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -118,6 +120,7 @@
             this.button3.TabIndex = 18;
             this.button3.Text = "Sign Out";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // ContactUs
             // 

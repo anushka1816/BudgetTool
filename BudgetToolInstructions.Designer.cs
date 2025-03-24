@@ -70,6 +70,7 @@
             this.button4.TabIndex = 12;
             this.button4.Text = "Back to Home";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -82,6 +83,7 @@
             this.button3.TabIndex = 13;
             this.button3.Text = "Sign Out";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label2
             // 
@@ -117,8 +119,8 @@
             this.label3.Size = new System.Drawing.Size(402, 84);
             this.label3.TabIndex = 16;
             this.label3.Text = "To use the Budget Spreadsheet, add, edit, or delete\nentries in accordance to the " +
-    "provided fields.\nUse the correct format for dates\nand do not use negative values " +
-    "for any entry.  ";
+    "provided fields.\nUse the correct format for dates\nand do not use negative values" +
+    " for any entry.  ";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BudgetToolInstructions

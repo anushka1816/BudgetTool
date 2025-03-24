@@ -31,5 +31,19 @@ namespace BudgetTool
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            HomePage homePage = new HomePage(); // Create an instance of the HomePage form
+            homePage.Show();                   // Show the HomePage form
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SignOutPage signOutPage = new SignOutPage(); // Create an instance of SignOutPage
+            signOutPage.Show();                          // Display the SignOutPage form
+            this.Hide();
+        }
     }
 }

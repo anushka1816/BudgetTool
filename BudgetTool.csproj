@@ -58,17 +58,17 @@
     <Compile Include="ContactUs.Designer.cs">
       <DependentUpon>ContactUs.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LoginPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoginPage.Designer.cs">
-      <DependentUpon>LoginPage.cs</DependentUpon>
     </Compile>
     <Compile Include="OverallStatsPage.cs">
       <SubType>Form</SubType>
@@ -102,11 +102,11 @@
     <EmbeddedResource Include="ContactUs.resx">
       <DependentUpon>ContactUs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoginPage.resx">
-      <DependentUpon>LoginPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OverallStatsPage.resx">
       <DependentUpon>OverallStatsPage.cs</DependentUpon>
