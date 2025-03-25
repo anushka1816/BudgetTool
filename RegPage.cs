@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace BudgetTool
 {
@@ -37,6 +38,19 @@ namespace BudgetTool
             LogIn logInPage = new LogIn(); 
             logInPage.Show();          
             this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string UserId = Guid.NewGuid().ToString(); 
+            string UName = txtName.Text;
+            string Email = txtEmail.Text;
+            string Username = txtUsername.Text;
+            string Password = txtPassword.Text; 
+
+            
+            UserRepository userRepository = new UserRepository(@"Data\UserDatabase.accdb");
+            userRepository.AddUser(UserId, UName, Email, Username, Password);
         }
     }
 }
