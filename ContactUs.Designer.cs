@@ -135,6 +135,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "ContactUs";
             this.Text = "ContactUs";
+            this.Load += new System.EventHandler(this.ContactUs_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

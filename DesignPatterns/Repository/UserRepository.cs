@@ -41,9 +41,9 @@ namespace BudgetTool
 
             using (var connection = new OdbcConnection(connectionString))
             {
-                string query = @"SELECT UserInfo.[UserID], UserInfo.[NameOfUser], UserInfo.[Email], 
-                                 UserInfo.[Username], UserInfo.[Password]
-                                 FROM UserInfo;";
+                string query = @"SELECT [UserID], [NameOfUser], [Email], 
+                                            [Username], [Password]
+                                            FROM UserInfo;";
 
                 using (var command = new OdbcCommand(query, connection))
                 {

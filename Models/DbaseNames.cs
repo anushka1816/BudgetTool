@@ -15,7 +15,7 @@ namespace BudgetTool.Models
          * 4. Uncheck "Prefer 32-bit"
          *********************************************************/
 
-        public static string UserDbase { get; } = "NCSSLabDataMartAccess-Sample.mdb";
+        public static string UserDbase { get; } = "UserDatabase.accdb";
         public static string UserDriver { get; } = "{Microsoft Access Driver (*.mdb, *.accdb)}";
         //public static string DSNName { get; } = "MSAccessDSN64.dsn";
     }

@@ -40,5 +40,10 @@ namespace BudgetTool
             signOutPage.Show();                          // Display the SignOutPage form
             this.Hide();
         }
+
+        private void ContactUs_Load(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+        }
     }
 }

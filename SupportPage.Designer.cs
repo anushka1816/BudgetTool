@@ -141,6 +141,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "SupportPage";
             this.Text = "SupportPage";
+            this.Load += new System.EventHandler(this.SupportPage_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

@@ -1,13 +1,7 @@
-﻿using System;
+﻿using BudgetTool.Models;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using BudgetTool.Models;
 
 namespace BudgetTool
 {
@@ -33,11 +27,23 @@ namespace BudgetTool
 
             //UserRepository userRepository = new UserRepository(@"Data\UserDatabase.accdb");
             UserRepository userRepository = new UserRepository();
+
+            //Get All Users in the Databse
             List<BudgetUsers> budgetUsers = userRepository.GetAllUsers();
 
-            bool isAuthenticated = userRepository.AuthenticateUser(username, password);
+            if (budgetUsers.Count == 0)
+            {
+                MessageBox.Show("No Users in the Database.", Titles.AppName, 
+                                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
-            if (isAuthenticated)
+            var foundUser = budgetUsers.Find(x => x.Username == username && x.Password == password);
+
+            //bool isAuthenticated = userRepository.AuthenticateUser(username, password);
+
+            //if (isAuthenticated)
+            if (foundUser != null)
             {
                 HomePage homePage = new HomePage();
                 homePage.Show();

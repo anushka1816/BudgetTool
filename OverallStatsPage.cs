@@ -26,5 +26,10 @@ namespace BudgetTool
         {
 
         }
+
+        private void OverallStatsPage_Load(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+        }
     }
 }

@@ -45,5 +45,10 @@ namespace BudgetTool
         {
 
         }
+
+        private void Spreadsheet_Load(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+        }
     }
 }

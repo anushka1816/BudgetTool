@@ -31,7 +31,7 @@ namespace BudgetTool
 
         private void LoginPage_Load(object sender, EventArgs e)
         {
-
+            this.CenterToScreen();
         }
 
         private void button2_Click(object sender, EventArgs e)

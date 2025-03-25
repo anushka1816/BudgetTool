@@ -29,7 +29,7 @@ namespace BudgetTool
 
         private void BudgetToolInstructions_Load(object sender, EventArgs e)
         {
-
+            this.CenterToScreen();
         }
 
         private void button4_Click(object sender, EventArgs e)

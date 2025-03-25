@@ -19,7 +19,7 @@ namespace BudgetTool
 
         private void SignOutPage_Load(object sender, EventArgs e)
         {
-
+            this.CenterToScreen();
         }
 
         private void label3_Click(object sender, EventArgs e)
