@@ -14,7 +14,9 @@ namespace BudgetTool
 
         public UserRepository(string dbPath)
         {
-            connectionString = $@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={dbPath};";
+
+            connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\kmani\Documents;";
+
         }
 
 
@@ -32,6 +34,23 @@ namespace BudgetTool
             finally
             {
                 connection.Close();
+            }
+        }
+        public bool AuthenticateUser(string username, string password)
+        {
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND Password = @Password";
+                using (OleDbCommand command = new OleDbCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Username", username);
+                    command.Parameters.AddWithValue("@Password", password);
+
+                    connection.Open();
+                    int count = (int)command.ExecuteScalar(); 
+
+                    return count > 0;
+                }
             }
         }
 

@@ -42,15 +42,29 @@ namespace BudgetTool
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string UserId = Guid.NewGuid().ToString(); 
-            string UName = txtName.Text;
-            string Email = txtEmail.Text;
-            string Username = txtUsername.Text;
-            string Password = txtPassword.Text; 
+            string name = textBox1.Text;
+            string email = textBox2.Text;
+            string username = textBox3.Text;
+            string password = textBox4.Text; 
 
-            
             UserRepository userRepository = new UserRepository(@"Data\UserDatabase.accdb");
-            userRepository.AddUser(UserId, UName, Email, Username, Password);
+            userRepository.AddUser(Guid.NewGuid().ToString(), name, email, username, password);
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

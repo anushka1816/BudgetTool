@@ -49,17 +49,43 @@ namespace BudgetTool
 
         private void button3_Click(object sender, EventArgs e)
         {
+        }
 
-            HomePage homePage = new HomePage();
-            homePage.Show();                 
-            this.Hide();
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string username = textBox3.Text; 
+            string password = textBox4.Text; 
+
+            UserRepository userRepository = new UserRepository(@"Data\UserDatabase.accdb");
+
+            bool isAuthenticated = userRepository.AuthenticateUser(username, password);
+
+            if (isAuthenticated)
+            {
+                HomePage homePage = new HomePage();
+                homePage.Show();
+                this.Hide();
+            }
+            else
+            {
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            RegPage regPage = new RegPage(); 
-            regPage.Show();                  
+            RegPage regPage = new RegPage();
+            regPage.Show();
             this.Hide();
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
