@@ -73,7 +73,7 @@
             this.button3.TabIndex = 31;
             this.button3.Text = "Log In";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.btnLogn_Click);
             // 
             // label9
             // 
@@ -114,7 +114,6 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(359, 35);
             this.textBox4.TabIndex = 33;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // textBox3
             // 
@@ -123,7 +122,6 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(359, 35);
             this.textBox3.TabIndex = 32;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // LogIn
             // 
