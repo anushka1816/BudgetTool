@@ -91,6 +91,12 @@
     <Compile Include="SignOutPage.Designer.cs">
       <DependentUpon>SignOutPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Spreadsheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spreadsheet.Designer.cs">
+      <DependentUpon>Spreadsheet.cs</DependentUpon>
+    </Compile>
     <Compile Include="SupportPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SignOutPage.resx">
       <DependentUpon>SignOutPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spreadsheet.resx">
+      <DependentUpon>Spreadsheet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SupportPage.resx">
       <DependentUpon>SupportPage.cs</DependentUpon>
