@@ -43,7 +43,9 @@ namespace BudgetTool
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Spreadsheet spreadsheet = new Spreadsheet();
+            spreadsheet.Show();
+            this.Close();
         }
 
         private void button5_Click(object sender, EventArgs e)

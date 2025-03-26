@@ -53,6 +53,10 @@ namespace BudgetTool
 
             userRepository.AddUser(Guid.NewGuid().ToString(), name, email, username, password);
 
+            LogIn logInPage = new LogIn();
+            logInPage.Show();
+            this.Hide();
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

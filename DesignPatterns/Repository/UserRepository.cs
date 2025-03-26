@@ -54,7 +54,7 @@ namespace BudgetTool
                         {
                             bu.Add(new BudgetUsers
                             {
-                                UserID = reader.GetInt32(0),
+                                UserID = reader.GetString(0),
                                 NameOfUser = reader.GetString(1),
                                 Email = reader.GetString(2),
                                 Username = reader.GetString(3),
