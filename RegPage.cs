@@ -13,6 +13,8 @@ namespace BudgetTool
 {
     public partial class RegPage : Form
     {
+        UserRepository userRepository = new UserRepository();
+
         public RegPage()
         {
             InitializeComponent();
@@ -47,7 +49,8 @@ namespace BudgetTool
             string username = textBox3.Text;
             string password = textBox4.Text; 
 
-            UserRepository userRepository = new UserRepository(@"Data\UserDatabase.accdb");
+            //UserRepository userRepository = new UserRepository(@"Data\UserDatabase.accdb");
+
             userRepository.AddUser(Guid.NewGuid().ToString(), name, email, username, password);
 
         }

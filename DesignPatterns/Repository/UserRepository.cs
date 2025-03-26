@@ -68,47 +68,77 @@ namespace BudgetTool
             return bu;
         }
 
+        /*
         public UserRepository(string dbPath)
         {
-
             connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\kmani\Documents;";
-
         }
-
+        */
 
         public void AddUser(string userId, string name, string email, string username, string password)
         {
-            OleDbConnection connection = new OleDbConnection(connectionString);
+            //OleDbConnection connection = new OleDbConnection(connectionString);
+            /*
+            connection.Open();
+            string query = $"INSERT INTO Users (UserID, Name, Email, Username, Password) VALUES " +
+                            $"('{userId}', '{name}', '{email}', '{username}', '{password}')";
+            OleDbCommand command = new OleDbCommand(query, connection);
+            command.ExecuteNonQuery();
+            */
+
             try
             {
-                connection.Open();
-                string query = $"INSERT INTO Users (UserID, Name, Email, Username, Password) VALUES " +
-                               $"('{userId}', '{name}', '{email}', '{username}', '{password}')";
-                OleDbCommand command = new OleDbCommand(query, connection);
-                command.ExecuteNonQuery();
+                using (var connection = new OdbcConnection(connectionString))
+                {
+                    string query = @"INSERT INTO UserInfo 
+                                               (UserID, NameOfUser, Email, Username, Password)
+                                               VALUES 
+                                               (?, ?, ?, ?, ?)";
+
+                    using (var command = new OdbcCommand(query, connection))
+                    {
+                        command.Parameters.Add(new OdbcParameter("@UserID", OdbcType.NVarChar) { Value = userId });
+                        command.Parameters.Add(new OdbcParameter("@NameOfUser", OdbcType.NVarChar) { Value = name });
+                        command.Parameters.Add(new OdbcParameter("@Email", OdbcType.NVarChar) { Value = email });
+                        command.Parameters.Add(new OdbcParameter("@Username", OdbcType.VarChar) { Value = username });
+                        command.Parameters.Add(new OdbcParameter("@Password", OdbcType.VarChar) { Value = password });
+
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            /*
             finally
             {
                 connection.Close();
             }
+            */
         }
 
-        public bool AuthenticateUser(string username, string password)
-        {
-            using (OleDbConnection connection = new OleDbConnection(connectionString))
+        /*
+            public bool AuthenticateUser(string username, string password)
             {
-                string query = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND Password = @Password";
-                using (OleDbCommand command = new OleDbCommand(query, connection))
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
                 {
-                    command.Parameters.AddWithValue("@Username", username);
-                    command.Parameters.AddWithValue("@Password", password);
+                    string query = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND Password = @Password";
+                    using (OleDbCommand command = new OleDbCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Username", username);
+                        command.Parameters.AddWithValue("@Password", password);
 
-                    connection.Open();
-                    int count = (int)command.ExecuteScalar(); 
+                        connection.Open();
+                        int count = (int)command.ExecuteScalar(); 
 
-                    return count > 0;
+                        return count > 0;
+                    }
                 }
             }
         }
+        */
     }
 }
