@@ -45,7 +45,7 @@ namespace BudgetTool
             //if (isAuthenticated)
             if (foundUser != null)
             {
-                HomePage homePage = new HomePage();
+                HomePage homePage = new HomePage(foundUser);
                 homePage.Show();
                 this.Hide();
             }

@@ -1,10 +1,12 @@
-﻿using System;
+﻿using BudgetTool.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,9 +14,12 @@ namespace BudgetTool
 {
     public partial class HomePage : Form
     {
-        public HomePage()
+        BudgetUsers budgetUsers = new BudgetUsers();
+
+        public HomePage(BudgetUsers bu)
         {
             InitializeComponent();
+            budgetUsers = bu;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -43,9 +48,17 @@ namespace BudgetTool
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Spreadsheet spreadsheet = new Spreadsheet();
-            spreadsheet.Show();
+            //Close current form
             this.Close();
+            //Create a thread to RUN a NEW application with the desired form
+            Thread t = new Thread(new ThreadStart(SpreadsheetForm));
+            t.Start();
+        }
+
+        private void SpreadsheetForm()
+        {
+            //RUNs a NEW application with the desired form
+            Application.Run(new Spreadsheet(budgetUsers));
         }
 
         private void button5_Click(object sender, EventArgs e)

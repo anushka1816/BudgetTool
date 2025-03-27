@@ -10,10 +10,9 @@ using BudgetTool.Models;
 
 namespace BudgetTool.DesignPatterns.Repository
 {
-    internal class SpreadsheetRepository
+    public class SpreadsheetRepository
     {
-
-        private readonly string connectionString;
+        private static string connectionString;
 
         public SpreadsheetRepository()
         {
@@ -34,67 +33,57 @@ namespace BudgetTool.DesignPatterns.Repository
             connectionString = cs;
         }
 
-        public List<SheetUsers> GetAllUsers()
+        public static List<SheetUsers> GetSpreadsheetsById(string UserId)
         {
-            var bu = new List<SheetUsers>();
+            List<SheetUsers> sheetUsers = null;
 
             using (var connection = new OdbcConnection(connectionString))
             {
-                string query = @"SELECT [UserID], [NameOfUser], [Email], 
-                                            [Username], [Password]
-                                            FROM UserInfo;";
+                string query = @"SELECT SpreadsheetID, UserID, EntryType, Amount
+                                             FROM Spreadsheet
+                                             WHERE UserID = ?";
 
                 using (var command = new OdbcCommand(query, connection))
                 {
+                    command.Parameters.Add(new OdbcParameter("@UserID", OdbcType.NVarChar) { Value = UserId });
+
+                    //command.Parameters.AddWithValue("?", UserId);
                     connection.Open();
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            bu.Add(new SheetUsers
+                            sheetUsers.Add(new SheetUsers
                             {
-                                SpreadsheetID = reader.GetString(0),
+                                SpreadsheetID = reader.GetInt32(0),
                                 UserID = reader.GetString(1),
-                                EntryNo = reader.GetInt32(2),
                                 EntryType = reader.GetString(3),
-                                Amount = reader.GetInt32(4)
+                                Amount = reader.GetDouble(4)
                             });
                         }
                     }
                 }
             }
 
-            return bu;
+            return sheetUsers;
         }
 
-        public void AddEntry(string spreadsheetId, string userID, int num, string type, int amount)
+        public static void AddEntry(string userID, string type, double amount)
         {
-            //OleDbConnection connection = new OleDbConnection(connectionString);
-            /*
-            connection.Open();
-            string query = $"INSERT INTO Users (UserID, Name, Email, Username, Password) VALUES " +
-                            $"('{userId}', '{name}', '{email}', '{username}', '{password}')";
-            OleDbCommand command = new OleDbCommand(query, connection);
-            command.ExecuteNonQuery();
-            */
-
             try
             {
                 using (var connection = new OdbcConnection(connectionString))
                 {
                     string query = @"INSERT INTO Spreadsheet
-                                               (SpreadsheetID, UserID, EntryNo, EntryType, Amount)
+                                               (UserID, EntryType, Amount)
                                                VALUES 
-                                               (?, ?, ?, ?, ?)";
+                                               (?, ?, ?)";
 
                     using (var command = new OdbcCommand(query, connection))
                     {
-                        command.Parameters.Add(new OdbcParameter("@UserID", OdbcType.NVarChar) { Value = spreadsheetId });
-                        command.Parameters.Add(new OdbcParameter("@NameOfUser", OdbcType.NVarChar) { Value = userID });
-                        command.Parameters.Add(new OdbcParameter("@Email", OdbcType.Int) { Value = num }); // Updated for integer
-                        command.Parameters.Add(new OdbcParameter("@Username", OdbcType.VarChar) { Value = type });
-                        command.Parameters.Add(new OdbcParameter("@Password", OdbcType.Int) { Value = amount }); // Updated for integer
-
+                        command.Parameters.Add(new OdbcParameter("@UserID", OdbcType.NVarChar) { Value = userID });
+                        command.Parameters.Add(new OdbcParameter("@EntryType", OdbcType.VarChar) { Value = type }); 
+                        command.Parameters.Add(new OdbcParameter("@Amount", OdbcType.Double) { Value = amount }); 
 
                         connection.Open();
                         command.ExecuteNonQuery();
@@ -113,10 +102,23 @@ namespace BudgetTool.DesignPatterns.Repository
             */
         }
 
+        public static void DeleteEntries(string UserID)
+        {
+            using (var connection = new OdbcConnection(connectionString))
+            {
+                //Use ? as the placeholder for the parameter
+                string query = @"DELETE FROM Spreadsheet 
+                                           WHERE UserID = ?";
 
+                using (var command = new OdbcCommand(query, connection))
+                {
+                    //Add the parameter (no need for parameter name, just value)
+                    command.Parameters.AddWithValue("?", UserID);
 
-
-
-
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }
