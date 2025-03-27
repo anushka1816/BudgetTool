@@ -61,7 +61,8 @@ namespace BudgetTool
 
         private void SetEntryCount()
         {
-            this.lblEntries.Text = "Entries: " + sheetUsers.Count;
+            int iCount = this.dgvBudgetTracker.Rows.Count;
+            this.lblEntries.Text = "Entries: " + (iCount - 1);
         }
 
         private void dgvBudgetTracker_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
