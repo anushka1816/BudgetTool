@@ -57,8 +57,8 @@ namespace BudgetTool.DesignPatterns.Repository
                             {
                                 SpreadsheetID = reader.GetInt32(0),
                                 UserID = reader.GetString(1),
-                                EntryType = reader.GetString(3),
-                                Amount = reader.GetDouble(4)
+                                EntryType = reader.GetString(2),
+                                Amount = reader.GetDouble(3)
                             });
                         }
                     }
