@@ -35,7 +35,7 @@ namespace BudgetTool.DesignPatterns.Repository
 
         public static List<SheetUsers> GetSpreadsheetsById(string UserId)
         {
-            List<SheetUsers> sheetUsers = null;
+            List<SheetUsers> sheetUsers = new List<SheetUsers>();
 
             using (var connection = new OdbcConnection(connectionString))
             {
