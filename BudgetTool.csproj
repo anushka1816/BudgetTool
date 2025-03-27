@@ -63,6 +63,7 @@
     <Compile Include="ContactUs.Designer.cs">
       <DependentUpon>ContactUs.cs</DependentUpon>
     </Compile>
+    <Compile Include="DesignPatterns\Repository\SpreadsheetRepository.cs" />
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +79,7 @@
     <Compile Include="Models\BudgetUsers.cs" />
     <Compile Include="Models\CurrentPath.cs" />
     <Compile Include="Models\DbaseNames.cs" />
+    <Compile Include="Models\SheetUsers.cs" />
     <Compile Include="Models\Titles.cs" />
     <Compile Include="OverallStatsPage.cs">
       <SubType>Form</SubType>
@@ -112,6 +114,11 @@
       <DependentUpon>SupportPage.cs</DependentUpon>
     </Compile>
     <Compile Include="DesignPatterns\Repository\UserRepository.cs" />
+    <Compile Include="UserDatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BudgetToolInstructions.resx">
       <DependentUpon>BudgetToolInstructions.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,6 +165,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="UserDatabaseDataSet.xsc">
+      <DependentUpon>UserDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="UserDatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UserDatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UserDatabaseDataSet.xss">
+      <DependentUpon>UserDatabaseDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
