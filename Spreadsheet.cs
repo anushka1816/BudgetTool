@@ -3,6 +3,7 @@ using BudgetTool.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace BudgetTool
@@ -56,18 +57,32 @@ namespace BudgetTool
             this.dgvBudgetTracker.AllowUserToDeleteRows = true;
             this.dgvBudgetTracker.ReadOnly = false;
 
+            // Format the Amount column as currency and right-align
+            DataGridViewColumn amountColumn = this.dgvBudgetTracker.Columns["Amount"];
+            amountColumn.DefaultCellStyle.Format = "C2"; // Currency format
+            amountColumn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            // Change the font size of the DataGridView
+            this.dgvBudgetTracker.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 15);
+
+            // Adjust column widths to fill the available space
+            this.dgvBudgetTracker.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
             this.SetEntryCount();
+
+            this.UpdateTotalAmount();
         }
 
         private void SetEntryCount()
         {
             int iCount = this.dgvBudgetTracker.Rows.Count;
-            this.lblEntries.Text = "Entries: " + (iCount - 1);
+            this.lblEntries.Text = "Total Entries: " + (iCount - 1);
         }
 
         private void dgvBudgetTracker_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
         {
             this.SetEntryCount();
+            this.UpdateTotalAmount();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -85,6 +100,27 @@ namespace BudgetTool
                 // Process the values as needed, e.g., save to the database
                 SpreadsheetRepository.AddEntry(budgetUsers.UserID, entryType, amount);
             }
+        }
+
+        private void UpdateTotalAmount()
+        {
+            double totalAmount = 0;
+
+            foreach (DataGridViewRow row in dgvBudgetTracker.Rows)
+            {
+                // Skip the new row placeholder
+                if (row.IsNewRow) continue;
+
+                if (row.Cells["Amount"].Value != null)
+                {
+                    totalAmount += Convert.ToDouble(row.Cells["Amount"].Value);
+                }
+            }
+
+            // Format as currency
+            this.txtAmount.Text = $"Total Amount: {totalAmount:C2}";
+            this.txtAmount.Enabled = false;
+            this.txtAmount.TextAlign = HorizontalAlignment.Right;
         }
     }
 }
