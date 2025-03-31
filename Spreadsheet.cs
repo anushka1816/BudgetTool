@@ -138,5 +138,10 @@ namespace BudgetTool
             //RUNs a NEW application with the desired form
             Application.Run(new HomePage(budgetUsers));
         }
+
+        private void dgvBudgetTracker_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

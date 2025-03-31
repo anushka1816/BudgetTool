@@ -43,6 +43,7 @@
             this.dgvBudgetTracker.Name = "dgvBudgetTracker";
             this.dgvBudgetTracker.Size = new System.Drawing.Size(537, 226);
             this.dgvBudgetTracker.TabIndex = 0;
+            this.dgvBudgetTracker.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBudgetTracker_CellContentClick);
             this.dgvBudgetTracker.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvBudgetTracker_RowValidating);
             // 
             // lblEntries
