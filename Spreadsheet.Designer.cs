@@ -32,6 +32,7 @@
             this.lblEntries = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtAmount = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBudgetTracker)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,12 +75,25 @@
             this.txtAmount.Size = new System.Drawing.Size(537, 30);
             this.txtAmount.TabIndex = 3;
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button4.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(25, 329);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(298, 39);
+            this.button4.TabIndex = 18;
+            this.button4.Text = "Back to Home";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Spreadsheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGreen;
             this.ClientSize = new System.Drawing.Size(595, 380);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.txtAmount);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblEntries);
@@ -99,5 +113,6 @@
         private System.Windows.Forms.Label lblEntries;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtAmount;
+        private System.Windows.Forms.Button button4;
     }
 }

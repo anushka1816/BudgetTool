@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace BudgetTool
@@ -121,6 +122,21 @@ namespace BudgetTool
             this.txtAmount.Text = $"Total Amount: {totalAmount:C2}";
             this.txtAmount.Enabled = false;
             this.txtAmount.TextAlign = HorizontalAlignment.Right;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //Close current form
+            this.Close();
+            //Create a thread to RUN a NEW application with the desired form
+            Thread t = new Thread(new ThreadStart(HomePageForm));
+            t.Start();
+        }
+
+        private void HomePageForm()
+        {
+            //RUNs a NEW application with the desired form
+            Application.Run(new HomePage(budgetUsers));
         }
     }
 }

@@ -5,8 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BudgetTool.Models;
 
 namespace BudgetTool
 {
@@ -34,13 +36,22 @@ namespace BudgetTool
 
         private void button4_Click(object sender, EventArgs e)
         {
-            /* CRV
-            HomePage homePage = new HomePage(); // Create an instance of the HomePage form
-            homePage.Show();                   // Show the HomePage form
-            this.Hide();
-            */
-        }
+            BudgetUsers budgetUser = GetBudgetUser(); // Replace this with your actual method to get the BudgetUsers instance
 
+            HomePage homePage = new HomePage(budgetUser);
+
+            // Display the HomePage form
+            homePage.Show();
+
+            // Close the current BudgetToolInstructions form
+            this.Close();
+
+        }
+        private BudgetUsers GetBudgetUser()
+        {
+            // Implement this method to return the actual BudgetUsers instance
+            return new BudgetUsers();
+        }
         private void button3_Click(object sender, EventArgs e)
         {
             SignOutPage signOutPage = new SignOutPage(); // Create an instance of SignOutPage
